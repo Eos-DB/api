@@ -1,9 +1,16 @@
 import { Router } from "express";
 import { 
     createNewDB, 
-    addRow, 
+    addColumn, 
     editRowName, 
-    editRowProperty 
+    editColumnProperty,
+    deleteColumn,
+    deleteDB,
+    addContent,
+    deleteContent,
+    queryDb,
+    editContent,
+    searchContent
 } from "../controllers/index.js";
 
 const userDB = Router();
@@ -12,10 +19,24 @@ userDB.get('/exemple', (req, res) => res.status(200).json([{"Token":"1a2b3c4d5e6
 // create a new data base
 userDB.post('/newDB', createNewDB)
 //add a row in an existant db, token and name required
-userDB.post('/addRow', addRow)
+userDB.post('/addColumn', addColumn)
 // Edit row name
 userDB.post('/editRowName', editRowName)
 // Edit row propertie
-userDB.post('/editRowProperty', editRowProperty)
+userDB.post('/editColumnProperty', editColumnProperty)
+// Delete a column
+userDB.post('/deleteColumn', deleteColumn)
+// Delete a database
+userDB.post('/deleteDB', deleteDB)
+// Add content to a data base
+userDB.post('/addContent', addContent)
+// Delete content to a data base
+userDB.post('/deleteContent', deleteContent)
+// Query a data base
+userDB.post('/queryDb', queryDb)
+// Edit content on a data base
+userDB.post('/editContent', editContent)
+// Search content on a data base
+userDB.post('/searchContent', searchContent)
 
 export default userDB;
